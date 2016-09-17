@@ -2,8 +2,19 @@
 
 var testApp = angular.module("testApp", ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap']);
 
-testApp.controller("mainCtrl", function($scope){
+testApp.config(function($datepickerProvider, $modalProvider) {
+  angular.extend($datepickerProvider.defaults, {
+    dateFormat: 'dd/MM/yyyy',
+    startWeek: 1,
+    autoclose: true
+  });
+  angular.extend($modalProvider.defaults, {
+    animation: 'am-flip-x'
+  });
+});
 
+
+testApp.controller("modalCtrl", function($scope, $modal){
 	// Array of workers
 	$scope.workers = [
 		{
@@ -134,28 +145,33 @@ testApp.controller("mainCtrl", function($scope){
 		}
 	];
 
-	$scope.pagination = "2";
-
 	$scope.pagArray = ['2', '4', '6', '20'];
+	$scope.pagination = $scope.pagArray[0];
 
-});
-
-testApp.config(function($datepickerProvider) {
-  angular.extend($datepickerProvider.defaults, {
-    dateFormat: 'dd/MM/yyyy',
-    startWeek: 1,
-    autoclose: true
-  });
-});
-
-testApp.controller("modalCtrl", function($scope, $modal){
 	var addNewPerson = $modal({
 		scope: $scope,
-		template: "../html/addNewPerson.html",
+		templateUrl: "../html/addNewPerson.html",
 		show: false});
 	 $scope.showModal = function() {
 	   addNewPerson.$promise.then(addNewPerson.show);
 	 };
+	 $scope.hideModal = function() {
+	   addNewPerson.$promise.then(addNewPerson.hide);
+	 };
+
+	 $scope.enterNewWorker = function(){
+	 	$scope.cacheInfo = {};	  	
+	  	$scope.cacheInfo.name = $scope.newWorkerName;
+	  	$scope.cacheInfo.surname = $scope.newWorkerSurname;
+	  	$scope.cacheInfo.birthday = $scope.selectedDate;
+	  	$scope.cacheInfo.phone = $scope.newWorkerPhone;
+	  	$scope.cacheInfo.mail = $scope.newWorkerMail;
+	  	$scope.cacheInfo.mail = $scope.newWorkerMail;
+	  	$scope.cacheInfo.sex = $scope.workerSex;	  	
+	  	$scope.workers.unshift($scope.cacheInfo);	  	
+	  	console.log($scope.cacheInfo);
+	  	$scope.hideModal();
+	  };	
 });
 
 testApp.directive("searchToolbar", function(){

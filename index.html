@@ -30,36 +30,37 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-controller="mainCtrl">
-    <div class="navbar-fixed-top" ng-controller="modalCtrl">
-      <search-toolbar></search-toolbar>
-    </div>
-    <div class="container marginClass bodyList">
-      <h2 class="h2margin">A list of staff:</h2>
-      <div class="row hr" ng-repeat="worker in workers | limitTo:pagination | filter:searchBody">
-        <div class="col-md-1 col-xs-1 col-sm-1 sexStyle">
-          <i class="fa fa-{{worker.sex}}" aria-hidden="true"></i>
-        </div>
-        <div class="col-md-7 col-xs-10 col-sm-7 workerInfo">
-          <span>{{worker.surname}} {{worker.name}}</span>
-        </div>
-        <div class="col-md-2 col-xs-12 col-sm-2 timeInOut">
-          <div class="row">
-            <div class="col-md-12">
-              <span class="timeIndication"></span>
-              <button class="btn btn-success btn-param">Start</button>
-            </div>
-            <div class="col-md-12">
-              <span class="timeIndication"></span>
-              <button class="btn btn-danger btn-param">Finish</button>
+  <body ng-controller="modalCtrl">
+    <div class="wrapperCont">
+      <div class="navbar-fixed-top">
+        <search-toolbar></search-toolbar>
+      </div>
+      <div class="container marginClass bodyList">
+        <h2 class="h2margin">A list of staff:</h2>
+        <div class="row hr" ng-repeat="worker in workers | limitTo:pagination | filter:searchBody">
+          <div class="col-md-1 col-xs-1 col-sm-1 sexStyle">
+            <i class="fa fa-{{worker.sex}}" aria-hidden="true"></i>
+          </div>
+          <div class="col-md-7 col-xs-10 col-sm-7 workerInfo">
+            <span>{{worker.surname}} {{worker.name}}</span>
+          </div>
+          <div class="col-md-2 col-xs-12 col-sm-2 timeInOut">
+            <div class="row">
+              <div class="col-md-12">
+                <span class="timeIndication"></span>
+                <button class="btn btn-success btn-param">Start</button>
+              </div>
+              <div class="col-md-12">
+                <span class="timeIndication"></span>
+                <button class="btn btn-danger btn-param">Finish</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-2 col-xs-12 col-sm-2 timeInOut">
-          <button class="btn btn-info btn-param-info">View</button>
+          <div class="col-md-2 col-xs-12 col-sm-2 timeInOut">
+            <button class="btn btn-info btn-param-info">View</button>
+          </div>
         </div>
       </div>
-    </div>
-    
+    </div>    
   </body>
 </html>
