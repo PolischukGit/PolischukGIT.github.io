@@ -1,16 +1,16 @@
 <div class="container-fluid no_padding">
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-12 no_padding">
-			<button class="btn btn-primary full_width">Add new person</button>
+			<button class="btn btn-primary full_width" ng-click="showModal()">Add new person</button>
 		</div>
-		<div class="col-md-8 col-sm-7 col-xs-9 no_padding">
+		<div class="col-md-8 col-sm-7 col-xs-12 no_padding">
 			<div class="input-group">
 		      <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
 		      <input type="text" ng-model="searchBody" class="form-control" placeholder="Search...">
 		      <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
 		    </div>
 		</div>			
-		<div class="col-md-2 col-sm-3 col-xs-3 no_padding">
+		<div class="col-md-2 col-sm-3 col-xs-12 no_padding">
 			<div class="input-group">
 		      <div class="input-group-addon">Pagination:</div>
 		      <select ng-model="pagination" class="form-control">

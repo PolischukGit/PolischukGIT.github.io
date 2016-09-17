@@ -9,11 +9,17 @@
 
     <!-- Bootstrap -->
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <!-- Custom Style -->
     <link href="css/main.css" rel="stylesheet">
 
     <!-- AngularJS -->
     <script src="libs/angularjs/angular.min.js"></script>
+    <script src="libs/angularjs/angular-animate.min.js"></script>
+    <script src="libs/angularjs/angular-sanitize.min.js"></script>
+    <script src="libs/angularjs/angular-strap.min.js"></script>
+    <script src="libs/angularjs/angular-strap.tpl.min.js"></script>
     <!-- My Controllers -->
     <script src="js/mainCtrl.js"></script>
 
@@ -25,14 +31,14 @@
     <![endif]-->
   </head>
   <body ng-controller="mainCtrl">
-    <div class="navbar-fixed-top">
+    <div class="navbar-fixed-top" ng-controller="modalCtrl">
       <search-toolbar></search-toolbar>
     </div>
     <div class="container marginClass bodyList">
       <h2 class="h2margin">A list of staff:</h2>
       <div class="row hr" ng-repeat="worker in workers | limitTo:pagination | filter:searchBody">
-        <div class="col-md-1 col-xs-1 col-sm-1 checkboxStyle">
-          <input type="checkbox" ng-model="checked">
+        <div class="col-md-1 col-xs-1 col-sm-1 sexStyle">
+          <i class="fa fa-{{worker.sex}}" aria-hidden="true"></i>
         </div>
         <div class="col-md-7 col-xs-10 col-sm-7 workerInfo">
           <span>{{worker.surname}} {{worker.name}}</span>
