@@ -2,19 +2,7 @@
 
 var testApp = angular.module("testApp", ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap']);
 
-testApp.config(function($datepickerProvider, $modalProvider) {
-  angular.extend($datepickerProvider.defaults, {
-    dateFormat: 'dd/MM/yyyy',
-    startWeek: 1,
-    autoclose: true
-  });
-  angular.extend($modalProvider.defaults, {
-    animation: 'am-flip-x'
-  });
-});
-
-
-testApp.controller("modalCtrl", function($scope, $modal){
+testApp.controller("mainCtrl", function($scope){
 	// Array of workers
 	$scope.workers = [
 		{
@@ -146,8 +134,11 @@ testApp.controller("modalCtrl", function($scope, $modal){
 	];
 
 	$scope.pagArray = ['2', '4', '6', '20'];
-	$scope.pagination = $scope.pagArray[0];
+	$scope.pagination = $scope.pagArray[0];		
+});
 
+testApp.controller('modalCtrl', function($scope, $modal){
+	$scope.cacheInfo = {};
 	var addNewPerson = $modal({
 		scope: $scope,
 		templateUrl: "../html/addNewPerson.html",
@@ -159,19 +150,23 @@ testApp.controller("modalCtrl", function($scope, $modal){
 	   addNewPerson.$promise.then(addNewPerson.hide);
 	 };
 
-	 $scope.enterNewWorker = function(){
-	 	$scope.cacheInfo = {};	  	
-	  	$scope.cacheInfo.name = $scope.newWorkerName;
-	  	$scope.cacheInfo.surname = $scope.newWorkerSurname;
-	  	$scope.cacheInfo.birthday = $scope.selectedDate;
-	  	$scope.cacheInfo.phone = $scope.newWorkerPhone;
-	  	$scope.cacheInfo.mail = $scope.newWorkerMail;
-	  	$scope.cacheInfo.mail = $scope.newWorkerMail;
-	  	$scope.cacheInfo.sex = $scope.workerSex;	  	
+	 $scope.enterNewWorker = function(){  	
 	  	$scope.workers.unshift($scope.cacheInfo);	  	
 	  	console.log($scope.cacheInfo);
 	  	$scope.hideModal();
-	  };	
+	  	$scope.cacheInfo = {};
+	  };
+});
+
+testApp.config(function($datepickerProvider, $modalProvider) {
+  angular.extend($datepickerProvider.defaults, {
+    dateFormat: 'dd/MM/yyyy',
+    startWeek: 1,
+    autoclose: true
+  });
+  angular.extend($modalProvider.defaults, {
+    animation: 'am-flip-x'
+  });
 });
 
 testApp.directive("searchToolbar", function(){

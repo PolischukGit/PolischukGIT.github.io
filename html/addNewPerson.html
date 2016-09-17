@@ -3,27 +3,27 @@
 		<h3><i class="fa fa-user" aria-hidden="true"></i>Enter information:</h3>
 		<div class="input-group full_width">
 	      <div class="input-group-addon minWidth90">Surname:</div>
-	      <input type="text" class="form-control" placeholder="Surname..." ng-model="newWorkerSurname">
+	      <input type="text" class="form-control" placeholder="Surname..." ng-model="cacheInfo.surname">
 	    </div>
     	<div class="input-group full_width">
           <div class="input-group-addon minWidth90">Name:</div>
-          <input type="text" class="form-control" placeholder="Name..." ng-model="newWorkerName">
+          <input type="text" class="form-control" placeholder="Name..." ng-model="cacheInfo.name">
         </div>
     	<div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-calendar" aria-hidden="true"></i> Birthday:</div>
-          <input class="form-control" ng-model="selectedDate" name="date" bs-datepicker type="text" placeholder="Click to pick...">
+          <input class="form-control" ng-model="cacheInfo.birthday" name="date" bs-datepicker type="text" placeholder="Click to pick...">
         </div>
         <div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-phone" aria-hidden="true"></i> Phone:</div>
-          <input type="text" class="form-control" placeholder="Phone..." ng-model="newWorkerPhone">
+          <input type="text" class="form-control" placeholder="Phone..." ng-model="cacheInfo.phone">
         </div>
         <div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-envelope" aria-hidden="true"></i> Mail:</div>
-          <input type="text" class="form-control" placeholder="Mail..." ng-model="newWorkerMail">
+          <input type="text" class="form-control" placeholder="Mail..." ng-model="cacheInfo.mail">
         </div>
         <div class="input-group full_width">
 	      <div class="input-group-addon minWidth90">Sex:</div>
-	      <select ng-model="workerSex" class="form-control">	      	
+	      <select ng-model="cacheInfo.sex" class="form-control">	      	
 	      	<option disabled>Choose your sex...</option>
 	      	<option value="mars">Male</option>
 	      	<option value="venus">Fimale</option>
