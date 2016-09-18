@@ -6,6 +6,7 @@ testApp.controller("mainCtrl", function($scope){
 	// Array of workers
 	$scope.workers = [
 		{
+			id: "0",
 			name: "Victoria",
 			surname: "Queen",
 			birthday: "1819/05/24",
@@ -15,6 +16,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "1",
 			name: "George",
 			surname: "Washington",
 			birthday: "1732/02/22",
@@ -24,6 +26,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "2",
 			name: "Thomas",
 			surname: "Jefferson",
 			birthday: "1743/04/13",
@@ -33,6 +36,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "3",
 			name: "Zachary",
 			surname: "Taylor",
 			birthday: "1784/11/24",
@@ -42,6 +46,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "4",
 			name: "Franklin",
 			surname: "Pierce",
 			birthday: "1804/11/23",
@@ -51,6 +56,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "5",
 			name: "Abraham",
 			surname: "Lincoln",
 			birthday: "1809/02/12",
@@ -60,6 +66,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "6",
 			name: "Andrew",
 			surname: "Johnson",
 			birthday: "1808/12/29",
@@ -69,6 +76,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "7",
 			name: "Grover",
 			surname: "Cleveland",
 			birthday: "1837/03/18",
@@ -78,6 +86,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "8",
 			name: "Benjamin",
 			surname: "Harrison",
 			birthday: "1833/07/20",
@@ -87,6 +96,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "9",
 			name: "William",
 			surname: "McKinley",
 			birthday: "1843/01/29",
@@ -96,6 +106,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "10",
 			name: "Theodore",
 			surname: "Roosevelt",
 			birthday: "1858/10/27",
@@ -105,6 +116,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "11",
 			name: "John",
 			surname: "Kennedy",
 			birthday: "1917/05/29",
@@ -114,6 +126,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "12",
 			name: "Bill",
 			surname: "Clinton",
 			birthday: "1946/07/19",
@@ -123,6 +136,7 @@ testApp.controller("mainCtrl", function($scope){
 			calendar: {}
 		},
 		{
+			id: "13",
 			name: "George",
 			surname: "Bush",
 			birthday: "1946/06/06",
@@ -136,6 +150,12 @@ testApp.controller("mainCtrl", function($scope){
 	$scope.pagArray = ['2', '4', '6', '20'];
 	$scope.pagination = $scope.pagArray[0];
 
+	$scope.$watch('workers.length', function(){
+		for(var j = 0; j < $scope.workers.length; j++){
+			$scope.workers[j].id = j;
+		};
+	});
+
 	$scope.getInTime = function(index){
 		var date = new Date();
 		var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
@@ -146,6 +166,7 @@ testApp.controller("mainCtrl", function($scope){
 		var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
 		$scope.workers[index].calendar.gone = time;
 	};
+
 });
 
 testApp.controller('modalCtrl', function($scope, $modal){
@@ -179,12 +200,13 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	 	$scope.viewCashe.phone = $scope.workers[index].phone;
 	 	$scope.viewCashe.mail = $scope.workers[index].mail;
 	 	$scope.viewCashe.sex = $scope.workers[index].sex;
+	 	$scope.viewCashe.id = $scope.workers[index].id;
 	 	$scope.indexEl = index;
 	   viewInfo.$promise.then(viewInfo.show);
 	 };
 	 $scope.delPerson = function(){
 	 	if(confirm("Delete?")){
-	 		$scope.workers.shift($scope.indexEl);
+	 		$scope.workers.splice($scope.indexEl, 1);
 	 		$scope.hideEditPanel();
 	 	}else{
 	 		return false;
@@ -227,12 +249,6 @@ testApp.directive("searchToolbar", function(){
 		restrict: 'E',
 		templateUrl: 'html/searchToolbar.html'
 	};
-});
-
-testApp.filter('reverse', function() {
-  return function(items) {
-    return items.slice().reverse();
-  };
 });
 
 })();
