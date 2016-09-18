@@ -37,7 +37,7 @@
       </div>
       <div class="container marginClass bodyList">
         <h2 class="h2margin">A list of staff:</h2>
-        <div class="row hr" ng-repeat="worker in workers | limitTo:pagination | filter:searchBody">
+        <div class="row hr" ng-repeat="worker in workers | reverse | limitTo:pagination | filter:searchBody">
           <div class="col-md-1 col-xs-1 col-sm-1 sexStyle">
             <i class="fa fa-{{worker.sex}}" aria-hidden="true"></i>
           </div>

@@ -150,11 +150,15 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	   addNewPerson.$promise.then(addNewPerson.hide);
 	 };
 
-	 $scope.enterNewWorker = function(){  	
-	  	$scope.workers.unshift($scope.cacheInfo);	  	
-	  	console.log($scope.cacheInfo);
-	  	$scope.hideModal();
-	  	$scope.cacheInfo = {};
+	 $scope.enterNewWorker = function(){
+	 	if($scope.cacheInfo.surname != undefined && $scope.cacheInfo.name != undefined && $scope.cacheInfo.birthday != undefined && $scope.cacheInfo.phone != undefined && $scope.cacheInfo.mail != undefined && $scope.cacheInfo.sex != undefined){
+	 		$scope.workers.push($scope.cacheInfo);	  	
+		  	console.log($scope.cacheInfo);
+		  	$scope.hideModal();
+		  	$scope.cacheInfo = {};
+		  }else{
+		  	alert("Error! Please, fill in all inputs!");		  	
+		  };	  	
 	  };
 });
 
@@ -176,4 +180,11 @@ testApp.directive("searchToolbar", function(){
 	};
 });
 
+testApp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 })();
+
