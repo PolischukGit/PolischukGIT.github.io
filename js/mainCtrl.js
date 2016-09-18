@@ -150,6 +150,7 @@ testApp.controller("mainCtrl", function($scope){
 
 testApp.controller('modalCtrl', function($scope, $modal){
 	$scope.cacheInfo = {};
+	$scope.viewCashe = {};
 	var addNewPerson = $modal({
 		scope: $scope,
 		templateUrl: "../html/addNewPerson.html",
@@ -158,6 +159,10 @@ testApp.controller('modalCtrl', function($scope, $modal){
 		scope: $scope,
 		templateUrl: "../html/viewInfo.html",
 		show: false});
+
+	 $scope.okBtn = false;
+	 $scope.disabledAttr = true;
+
 	 $scope.showModal = function() {
 	   addNewPerson.$promise.then(addNewPerson.show);
 	 };
@@ -168,11 +173,12 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	   viewInfo.$promise.then(viewInfo.hide);
 	 };
 	 $scope.showInfoModal = function(index) {
-	 	$scope.viewSurname = $scope.workers[index].surname;
-	 	$scope.viewName = $scope.workers[index].name;
-	 	$scope.viewBirthday = $scope.workers[index].birthday;
-	 	$scope.viewPhone = $scope.workers[index].phone;
-	 	$scope.viewMail = $scope.workers[index].mail;
+	 	$scope.viewCashe.surname = $scope.workers[index].surname;
+	 	$scope.viewCashe.name= $scope.workers[index].name;
+	 	$scope.viewCashe.birthday = $scope.workers[index].birthday;
+	 	$scope.viewCashe.phone = $scope.workers[index].phone;
+	 	$scope.viewCashe.mail = $scope.workers[index].mail;
+	 	$scope.viewCashe.sex = $scope.workers[index].sex;
 	 	$scope.indexEl = index;
 	   viewInfo.$promise.then(viewInfo.show);
 	 };
@@ -184,11 +190,19 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	 		return false;
 	 	};	 	
 	 };
+	 $scope.editPerson = function(){
+	 	$scope.okBtn = true;
+	 	$scope.disabledAttr = false;	 	
+	 };
+	 $scope.confirmEdit = function(){
+	 	$scope.workers.splice($scope.indexEl, 1, $scope.viewCashe);
+	 	$scope.okBtn = false;
+	 	$scope.disabledAttr = true;
+	 };
 
 	 $scope.enterNewWorker = function(){
 	 	if($scope.cacheInfo.surname != undefined && $scope.cacheInfo.name != undefined && $scope.cacheInfo.birthday != undefined && $scope.cacheInfo.phone != undefined && $scope.cacheInfo.mail != undefined && $scope.cacheInfo.sex != undefined){
 	 		$scope.workers.unshift($scope.cacheInfo);	  	
-		  	console.log($scope.cacheInfo);
 		  	$scope.hideModal();
 		  	$scope.cacheInfo = {};
 		  }else{

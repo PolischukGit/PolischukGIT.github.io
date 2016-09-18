@@ -1,29 +1,30 @@
 <div class="bodyListAdd">
-	<div class="bodyListAddContent">
+	<div class="bodyListAddContent infoWrapper">
 		<h3><i class="fa fa-user" aria-hidden="true"></i>Information:</h3>
 		<div class="input-group full_width">
 	      <div class="input-group-addon minWidth90">Surname:</div>
-	      <input disabled type="text" class="form-control" placeholder="Surname..." ng-model="viewSurname">
+	      <input ng-disabled="disabledAttr" type="text" class="form-control" placeholder="Surname..." ng-model="viewCashe.surname">
 	    </div>
     	<div class="input-group full_width">
           <div class="input-group-addon minWidth90">Name:</div>
-          <input disabled type="text" class="form-control" placeholder="Name..." ng-model="viewName">
+          <input ng-disabled="disabledAttr" type="text" class="form-control" placeholder="Name..." ng-model="viewCashe.name">
         </div>
     	<div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-calendar" aria-hidden="true"></i> Birthday:</div>
-          <input disabled class="form-control" ng-model="viewBirthday" name="date" bs-datepicker type="text" placeholder="Click to pick...">
+          <input ng-disabled="disabledAttr" class="form-control" ng-model="viewCashe.birthday" name="date" bs-datepicker type="text" placeholder="Click to pick...">
         </div>
         <div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-phone" aria-hidden="true"></i> Phone:</div>
-          <input disabled type="text" class="form-control" placeholder="Phone..." ng-model="viewPhone">
+          <input ng-disabled="disabledAttr" type="text" class="form-control" placeholder="Phone..." ng-model="viewCashe.phone">
         </div>
         <div class="input-group full_width">
           <div class="input-group-addon minWidth90"><i class="fa fa-envelope" aria-hidden="true"></i> Mail:</div>
-          <input disabled type="text" class="form-control" placeholder="Mail..." ng-model="viewMail">
+          <input ng-disabled="disabledAttr" type="text" class="form-control" placeholder="Mail..." ng-model="viewCashe.mail">
         </div>
         <div class="input-group full_width">
-          <button class="btn btn-primary half_width">Edit</button>
-          <button class="btn btn-danger half_width" ng-click="delPerson()">Delete</button>
+          <button ng-hide="okBtn" class="btn btn-primary half_width" ng-click="editPerson()">Edit</button>
+          <button ng-hide="okBtn" class="btn btn-danger half_width" ng-click="delPerson()">Delete</button>
+          <button ng-show="okBtn" class="btn btn-success full_width" ng-click="confirmEdit()">Ok</button>
         </div>
 	    
 	</div>
