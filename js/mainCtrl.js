@@ -134,7 +134,18 @@ testApp.controller("mainCtrl", function($scope){
 	];
 
 	$scope.pagArray = ['2', '4', '6', '20'];
-	$scope.pagination = $scope.pagArray[0];		
+	$scope.pagination = $scope.pagArray[0];
+
+	$scope.getInTime = function(index){
+		var date = new Date();
+		var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+		$scope.workers[index].calendar.come = time;
+	};
+	$scope.getOutTime = function(index){
+		var date = new Date();
+		var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+		$scope.workers[index].calendar.gone = time;
+	};
 });
 
 testApp.controller('modalCtrl', function($scope, $modal){
@@ -143,16 +154,40 @@ testApp.controller('modalCtrl', function($scope, $modal){
 		scope: $scope,
 		templateUrl: "../html/addNewPerson.html",
 		show: false});
+	var viewInfo = $modal({
+		scope: $scope,
+		templateUrl: "../html/viewInfo.html",
+		show: false});
 	 $scope.showModal = function() {
 	   addNewPerson.$promise.then(addNewPerson.show);
 	 };
 	 $scope.hideModal = function() {
 	   addNewPerson.$promise.then(addNewPerson.hide);
 	 };
+	 $scope.hideEditPanel = function() {
+	   viewInfo.$promise.then(viewInfo.hide);
+	 };
+	 $scope.showInfoModal = function(index) {
+	 	$scope.viewSurname = $scope.workers[index].surname;
+	 	$scope.viewName = $scope.workers[index].name;
+	 	$scope.viewBirthday = $scope.workers[index].birthday;
+	 	$scope.viewPhone = $scope.workers[index].phone;
+	 	$scope.viewMail = $scope.workers[index].mail;
+	 	$scope.indexEl = index;
+	   viewInfo.$promise.then(viewInfo.show);
+	 };
+	 $scope.delPerson = function(){
+	 	if(confirm("Delete?")){
+	 		$scope.workers.shift($scope.indexEl);
+	 		$scope.hideEditPanel();
+	 	}else{
+	 		return false;
+	 	};	 	
+	 };
 
 	 $scope.enterNewWorker = function(){
 	 	if($scope.cacheInfo.surname != undefined && $scope.cacheInfo.name != undefined && $scope.cacheInfo.birthday != undefined && $scope.cacheInfo.phone != undefined && $scope.cacheInfo.mail != undefined && $scope.cacheInfo.sex != undefined){
-	 		$scope.workers.push($scope.cacheInfo);	  	
+	 		$scope.workers.unshift($scope.cacheInfo);	  	
 		  	console.log($scope.cacheInfo);
 		  	$scope.hideModal();
 		  	$scope.cacheInfo = {};

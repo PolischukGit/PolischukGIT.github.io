@@ -58,6 +58,10 @@ body{
 .full_width{
 	width: 100%;
 }
+.half_width{
+	width: 50%;
+	float: left;
+}
 .minWidth90{
 	width: 120px;
 }
@@ -79,6 +83,7 @@ body{
 	height: 30px;
 	display: inline-block;
 	float: left;
+	line-height: 30px;
 }
 .sexStyle{
 	font-size: 30px;
