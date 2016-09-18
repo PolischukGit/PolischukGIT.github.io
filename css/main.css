@@ -98,7 +98,7 @@ body{
 
 
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
 	.marginClass{
 		margin-top: 100px;
 		margin-bottom: 30px;
