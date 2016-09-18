@@ -162,9 +162,13 @@ testApp.controller("mainCtrl", function($scope){
 		$scope.workers[index].calendar.come = time;
 	};
 	$scope.getOutTime = function(index){
-		var date = new Date();
-		var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
-		$scope.workers[index].calendar.gone = time;
+		if($scope.workers[index].calendar.come){
+			var date = new Date();
+			var time = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+			$scope.workers[index].calendar.gone = time;
+		}else{
+			alert("Enter start time!");
+		};		
 	};
 
 });
