@@ -205,6 +205,7 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	 	$scope.viewCashe.mail = $scope.workers[index].mail;
 	 	$scope.viewCashe.sex = $scope.workers[index].sex;
 	 	$scope.viewCashe.id = $scope.workers[index].id;
+	 	$scope.viewCashe.calendar = $scope.workers[index].calendar;
 	 	$scope.indexEl = index;
 	   viewInfo.$promise.then(viewInfo.show);
 	 };
