@@ -206,6 +206,8 @@ testApp.controller('modalCtrl', function($scope, $modal){
 	 };
 	 $scope.delPerson = function(){
 	 	if(confirm("Delete?")){
+	 		$scope.workers[$scope.indexEl].calendar.come = "";
+	 		$scope.workers[$scope.indexEl].calendar.gone = "";
 	 		$scope.workers.splice($scope.indexEl, 1);
 	 		$scope.hideEditPanel();
 	 	}else{
@@ -224,6 +226,8 @@ testApp.controller('modalCtrl', function($scope, $modal){
 
 	 $scope.enterNewWorker = function(){
 	 	if($scope.cacheInfo.surname != undefined && $scope.cacheInfo.name != undefined && $scope.cacheInfo.birthday != undefined && $scope.cacheInfo.phone != undefined && $scope.cacheInfo.mail != undefined && $scope.cacheInfo.sex != undefined){
+	 		$scope.cacheInfo.id = $scope.workers.length;
+	 		$scope.cacheInfo.calendar = {};
 	 		$scope.workers.unshift($scope.cacheInfo);	  	
 		  	$scope.hideModal();
 		  	$scope.cacheInfo = {};

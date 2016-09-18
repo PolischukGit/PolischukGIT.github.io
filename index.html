@@ -47,12 +47,12 @@
           <div class="col-md-2 col-xs-12 col-sm-2 timeInOut">
             <div class="row">
               <div class="col-md-12">
-                <span class="timeIndication">{{workers[$index].calendar.come}}</span>
-                <button class="btn btn-success btn-param" ng-click="getInTime($index)">Start</button>
+                <span class="timeIndication">{{worker.calendar.come}}</span>
+                <button class="btn btn-success btn-param" ng-click="getInTime(worker.id)">Start</button>
               </div>
               <div class="col-md-12">
-                <span class="timeIndication">{{workers[$index].calendar.gone}}</span>
-                <button class="btn btn-danger btn-param" ng-click="getOutTime($index)">Finish</button>
+                <span class="timeIndication">{{worker.calendar.gone}}</span>
+                <button class="btn btn-danger btn-param" ng-click="getOutTime(worker.id)">Finish</button>
               </div>
             </div>
           </div>
