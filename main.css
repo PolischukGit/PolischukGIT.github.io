@@ -1,0 +1,151 @@
+@font-face {
+    font-family: BadScript;
+    src: url(fonts/BadScript-Regular.ttf);
+}
+/* preloader */
+.preloader-cont{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.preloader-cont .background-image{
+    background-image: url(./img/unsplash_527bf56961712_1.JPG);
+    background-size: cover;
+    display: block;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    height: 800px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+.preloader-cont .input-wrapp{
+    position: absolute;
+    height: 40px;
+    top: calc(50% - 20px);
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    display: none;
+}
+.preloader-cont .input-wrapp .btn-ok-surname{
+    position: absolute;
+    top: 4px;
+    right: 13%;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+.preloader-cont .input-wrapp .btn-ok-surname:hover{
+    background-color: rgba(0, 255, 0, 0.5);
+}
+.preloader-cont .input-wrapp .surname-input{
+    width: 75%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid rgba(226, 84, 84, 0.5);
+    outline: none;
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.8);
+    font-size: 25px;
+    padding-left: 15px;
+}
+@media only screen and (max-width: 600px) {
+    .preloader-cont .input-wrapp .surname-input {
+        font-size: 16px;
+    }
+}
+/* invite */
+.invite-cont{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    text-align: center;
+}
+.invite-cont .inner-wrapp{
+    display: inline-block;
+    width: 1000px;
+    height: 580px;
+    border: 2px solid rgba(26, 22, 22, 0.5);
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden
+}
+.invite-cont .inner-wrapp .img-wrapp{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 810px;
+    background-image: url(./img/we.jpg);
+    background-size: 115%;
+    background-position: -120px -165px;
+}
+.invite-cont .inner-wrapp .text-wrapp{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 440px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: BadScript, Arial, Helvetica, sans-serif;
+}
+.invite-cont .inner-wrapp .text-wrapp .invite-name{
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.invite-cont .inner-wrapp .text-wrapp .invite-text{
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px;
+    letter-spacing: 2px;
+}
+.invite-cont .inner-wrapp .text-wrapp .invite-text-we{
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 15px 0 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+    float: right;
+}
+.invite-cont .inner-wrapp .text-wrapp .wenz{
+    margin: 0;
+    height: 45px;
+    background-image: url(./img/we-wenz.jpg);
+    background-size: cover;
+}
+.invite-cont .inner-wrapp .text-wrapp .invite-date{
+    font-size: 50px;
+    line-height: 65px;
+    text-align: center;
+    margin: 10px;
+}
+.invite-cont .inner-wrapp .text-wrapp .invite-time{
+    font-size: 60px;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px;
+}
+.invite-cont .inner-wrapp .text-wrapp .geo-place{
+    font-size: 45px;
+    line-height: 40px;
+    text-align: center;
+    margin: 25px 0 20px 0;
+}
