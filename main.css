@@ -81,6 +81,13 @@
     position: relative;
     overflow: hidden
 }
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp{
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+    }
+}
 .invite-cont .inner-wrapp .img-wrapp{
     position: absolute;
     left: 0;
@@ -109,12 +116,26 @@
     font-weight: bold;
     text-decoration: underline;
 }
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp .text-wrapp .invite-name{
+        margin: 20px 0 45px 60px;
+    }
+}
 .invite-cont .inner-wrapp .text-wrapp .invite-text{
     font-size: 22px;
     line-height: 40px;
     text-align: center;
     margin: 10px;
     letter-spacing: 2px;
+}
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp .text-wrapp .invite-text{
+        font-size: 28px;
+        line-height: 36px;
+        margin: 10px 10px 10px 33px;
+        letter-spacing: 1px;
+        width: 100%;
+    }
 }
 .invite-cont .inner-wrapp .text-wrapp .invite-text-we{
     font-size: 22px;
@@ -137,15 +158,35 @@
     text-align: center;
     margin: 10px;
 }
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp .text-wrapp .invite-date{
+        font-size: 45px;
+        line-height: 50px;
+        margin: 10px 0 10px 55px;
+    }
+}
 .invite-cont .inner-wrapp .text-wrapp .invite-time{
     font-size: 60px;
     line-height: 40px;
     text-align: center;
     margin: 10px;
 }
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp .text-wrapp .invite-time{
+        font-size: 45px;
+        line-height: 50px;
+        margin: 10px 0 10px 55px;
+    }
+}
 .invite-cont .inner-wrapp .text-wrapp .geo-place{
     font-size: 45px;
     line-height: 40px;
     text-align: center;
     margin: 25px 0 20px 0;
+}
+@media only screen and (max-width: 375px) {
+    .invite-cont .inner-wrapp .text-wrapp .geo-place{
+        font-size: 30px;
+        margin: 25px 0 20px 45px;
+    }
 }
