@@ -7,7 +7,11 @@ let surname_array = {
     бобровников: 'Владимир и Татьяна!',
     галушка: 'Владимир и Елена!',
     омельченко: 'Евгений, Алена и Полина!',
-    испас: 'Денис, Юлия и Дарьяна!'
+    испас: 'Денис, Юлия и Дарьяна!',
+    самойлова: 'Анна!',
+    симонов: 'Сергей Петрович и Наталья Владимировна!',
+    видюк: 'Валентина Валентиновна!',
+    ланский: 'Иван Валентинович и Елена Владимировна!'
 };
 let invite = localStorage.getItem('invite');
 window.onload = () => {
@@ -41,7 +45,7 @@ let selectSurname = () => {
         return;
     }
     for (let sur of Object.keys(surname_array)) {
-        if (sur.toLowerCase().indexOf(surname.substr(0, surname.length - 1).toLowerCase()) !== -1) {
+        if (sur.toLowerCase().indexOf(surname.substr(0, surname.length - 2).toLowerCase()) !== -1) {
             exist = surname_array[sur];
         }
     }
