@@ -12080,7 +12080,9 @@ class KeyCheckerComponent {
             const formContr = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
             this.formGroup.addControl(i.toString(), formContr);
         }
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'keydown').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.alive$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((e) => e.keyCode === 8 || Number.isInteger(+e.key)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(e => e.preventDefault())).subscribe((e) => {
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'keydown').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.alive$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((e) => {
+            return e.keyCode === 8 || Number.isInteger(+e.target.value);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(e => e.preventDefault())).subscribe((e) => {
             if (this.activeInputIndex !== null) {
                 const control = this.formGroup.get(this.activeInputIndex.toString());
                 const value = control.value;
