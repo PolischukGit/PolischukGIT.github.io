@@ -12056,10 +12056,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function KeyCheckerComponent_input_1_Template(rf, ctx) { if (rf & 1) {
-    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("blur", function KeyCheckerComponent_input_1_Template_input_blur_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.activeInputIndex = 0; });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 2);
 } if (rf & 2) {
     const ind_r2 = ctx.index;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formControlName", ind_r2);
@@ -12132,7 +12129,7 @@ class KeyCheckerComponent {
     }
 }
 KeyCheckerComponent.ɵfac = function KeyCheckerComponent_Factory(t) { return new (t || KeyCheckerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])); };
-KeyCheckerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: KeyCheckerComponent, selectors: [["app-key-checker"]], inputs: { rows: "rows" }, outputs: { sendValue: "sendValue" }, decls: 2, vars: 2, consts: [[1, "wrapper", 3, "formGroup", "click"], ["type", "number", "class", "custom", 3, "formControlName", "blur", 4, "ngFor", "ngForOf"], ["type", "number", 1, "custom", 3, "formControlName", "blur"]], template: function KeyCheckerComponent_Template(rf, ctx) { if (rf & 1) {
+KeyCheckerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: KeyCheckerComponent, selectors: [["app-key-checker"]], inputs: { rows: "rows" }, outputs: { sendValue: "sendValue" }, decls: 2, vars: 2, consts: [[1, "wrapper", 3, "formGroup", "click"], ["type", "number", "class", "custom", 3, "formControlName", 4, "ngFor", "ngForOf"], ["type", "number", 1, "custom", 3, "formControlName"]], template: function KeyCheckerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function KeyCheckerComponent_Template_div_click_0_listener() { return ctx.handleFocus(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, KeyCheckerComponent_input_1_Template, 1, 1, "input", 1);
